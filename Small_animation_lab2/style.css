@@ -1,0 +1,57 @@
+@property --heart-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: red;
+}
+
+#heart {
+  position: relative;
+  margin-left: 300px;
+  width: 100px;
+  height: 90px;
+  --heart-color: red;
+  animation: hearte 5s 3 ease-in-out both alternate;
+}
+
+#heart:before,
+#heart:after {
+  position: absolute;
+  content: "";
+  left: 50px;
+  top: 100px;
+  width: 50px;
+  height: 80px;
+  background: var(--heart-color);
+  border-radius: 50px 50px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+#heart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+@keyframes hearte {
+  0% {
+    --heart-color: red;
+    transform: scale(1) translate(0, 0);
+  }
+  25% {
+    --heart-color: pink;
+    transform: scale(2) translate(50px, 0px);
+  }
+  50% {
+    --heart-color: orange;
+    transform: scale(3) translate(0px, 100px);
+  }
+  75% {
+    --heart-color: yellow;
+    transform: scale(2) translate(100px, 100px);
+  }
+  100% {
+    --heart-color: red;
+    transform: scale(1) translate(0, 0);
+  }
+}
