@@ -1,0 +1,183 @@
+body {
+  display: flex;
+  flex-direction: row;
+}
+.class1 {
+  height: 100px;
+  width: 200px;
+  margin: 50px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.class1 div {
+  width: 5px;
+  height: 5px;
+  background-color: rgb(152, 130, 238);
+  border-radius: 30px;
+}
+#el1 {
+  animation: move_color 1s 0.125s infinite both;
+}
+#el2 {
+  animation: move_color 1s 0.25s infinite both ease-in-out;
+}
+#el3 {
+  animation: move_color 1s 0.375s infinite both ease-in-out;
+}
+#el4 {
+  animation: move_color 1s 0.5s infinite both ease-in-out;
+}
+#el5 {
+  animation: move_color 1s 0.625s infinite both ease-in-out;
+}
+#el6 {
+  animation: move_color 1s 0.75s infinite both ease-in-out;
+}
+#el7 {
+  animation: move_color 1s 0.875s infinite both ease-in-out;
+}
+#el8 {
+  animation: move_color 1s 1s infinite both ease-in-out;
+}
+@keyframes move_color {
+  0% {
+    width: 5px;
+    height: 5px;
+    background-color: rgb(152, 130, 238);
+    margin-top: 90px;
+  }
+
+  50% {
+    width: 15px;
+    height: 15px;
+    background-color: rgb(130, 224, 238);
+    margin-top: 50px;
+  }
+
+  100% {
+    width: 5px;
+    height: 5px;
+    background-color: aquamarine;
+    margin-top: 90px;
+  }
+}
+
+.class2 {
+  height: 200px;
+  width: 200px;
+  margin: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 20px);
+  grid-template-rows: repeat(3, 20px);
+  gap: 10px;
+  gap: 10px;
+}
+
+.class2 div {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(152, 130, 238);
+  border-radius: 30px;
+}
+#segment1 {
+  grid-area: 1 / 1;
+  animation: fluid_fade 0.8s 0.1s infinite ease-in-out;
+}
+#segment2 {
+  grid-area: 1 / 2;
+  animation: fluid_fade 0.8s 0.2s infinite ease-in-out;
+}
+#segment3 {
+  grid-area: 1 / 3;
+  animation: fluid_fade 0.8s 0.3s infinite ease-in-out;
+}
+#segment4 {
+  grid-area: 2 / 3;
+  animation: fluid_fade 0.8s 0.4s infinite ease-in-out;
+}
+#segment5 {
+  grid-area: 3 / 3;
+  animation: fluid_fade 0.8s 0.5s infinite ease-in-out;
+}
+#segment6 {
+  grid-area: 3 / 2;
+  animation: fluid_fade 0.8s 0.6s infinite ease-in-out;
+}
+#segment7 {
+  grid-area: 3 / 1;
+  animation: fluid_fade 0.8s 0.7s infinite ease-in-out;
+}
+#segment8 {
+  grid-area: 2 / 1;
+  animation: fluid_fade 0.8s 0.8s infinite ease-in-out;
+}
+@keyframes fluid_fade {
+  0% {
+    background-color: rgb(152, 130, 238);
+    opacity: 1;
+    width: 20px;
+    height: 20px;
+  }
+  10% {
+    background-color: rgb(152, 130, 238);
+    opacity: 0.9;
+    width: 20px;
+    height: 20px;
+  }
+  20% {
+    background-color: rgb(152, 130, 238);
+    opacity: 0.8;
+    width: 20px;
+    height: 20px;
+  }
+  30% {
+    background-color: rgb(152, 130, 238);
+    opacity: 0.7;
+    width: 20px;
+    height: 20px;
+  }
+  40% {
+    background-color: rgb(152, 130, 238);
+    opacity: 0.6;
+    width: 15px;
+    height: 15px;
+  }
+  50% {
+    background-color: rgb(152, 130, 238);
+    opacity: 0.5;
+    width: 15px;
+    height: 15px;
+  }
+  60% {
+    background-color: rgb(152, 130, 238);
+    opacity: 0.4;
+    width: 10px;
+    height: 10px;
+  }
+  70% {
+    background-color: rgb(152, 130, 238);
+    opacity: 0.3;
+    width: 10px;
+    height: 10px;
+  }
+  80% {
+    background-color: rgb(152, 130, 238);
+    opacity: 0.2;
+    width: 5px;
+    height: 5px;
+  }
+  90% {
+    background-color: rgb(152, 130, 238);
+    opacity: 0.1;
+    width: 5px;
+    height: 5px;
+  }
+  100% {
+    background-color: rgb(152, 130, 238);
+    opacity: 0;
+    width: 15px;
+    height: 15px;
+  }
+}
