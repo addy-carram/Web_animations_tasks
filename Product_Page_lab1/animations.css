@@ -1,0 +1,349 @@
+/* 
+intrare incarcare
+buton primar secundar
+hover pe produse
+hover pe nav-bar
+miscarea lui breath
+aparitia pe pasi a why teraphy
+navigatie sa apara ceva
+logo si icons mici 
+afisare navigatie
+
+5/20
+3/6
+
+
+*/
+
+/* ---------- 1. Buton primary: umplere care intră din stânga ---------- */
+.btn:not(.btn_light) {
+  background:
+    linear-gradient(var(--dark-color), var(--dark-color)) no-repeat left / 0%
+      100%,
+    var(--primary-color);
+  transition: background-size 0.4s ease;
+}
+.btn:not(.btn_light):hover {
+  background-size: 100% 100%;
+}
+
+/* ---------- 2. Link secondary: underline care devine fundal ---------- */
+.text_link {
+  width: 50px;
+  height: 50px;
+  text-decoration: none;
+  padding: 2px 4px;
+  background: linear-gradient(var(--primary-color), var(--primary-color))
+    no-repeat left bottom / 100% 2px;
+  transition:
+    background-size 0.3s ease,
+    color 0.3s ease;
+}
+.text_link:hover {
+  background-size: 100% 100%;
+  color: #fff;
+}
+
+/* ---------- 3. Iconițe mai mari la hover ---------- */
+nav > img,
+.assure img {
+  transition: transform 0.3s ease;
+}
+nav > img:hover,
+.assure div:hover img {
+  transform: scale(1.25);
+}
+
+/* ---------- Respectă „reduce motion” ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- Reveal la scroll ---------- */
+@supports (animation-timeline: view()) {
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(80px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .col3 > div,
+  .facts li,
+  .steps li,
+  .review,
+  .card {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 50%;
+  }
+
+  /* efect în trepte: fiecare coloană pornește puțin mai târziu */
+  .col3 > div:nth-child(2) {
+    animation-range: entry 10% entry 60%;
+  }
+  .col3 > div:nth-child(3) {
+    animation-range: entry 20% entry 70%;
+  }
+}
+
+/* animatie la hover pe carduri */
+.card_img {
+  position: relative;
+}
+.card_img a {
+  display: block;
+  height: 100%;
+}
+
+.add_btn {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 16px;
+  border: none;
+  background: var(--primary-color);
+  color: #fff;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.grid.stagger .card button {
+  opacity: 0;
+  border: 1 solid transparent;
+}
+.grid.stagger a {
+  text-decoration: none;
+}
+.grid.stagger .card:hover button,
+.grid.stagger .card:focus-within button {
+  opacity: 1;
+
+  animation: add-in ease-in-out 0.5s both;
+}
+
+@keyframes add-in {
+  from {
+    opacity: 0;
+    transform: translateY(80px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (hover: none) {
+  .grid.stagger .card button {
+    opacity: 1;
+  }
+}
+.text_link {
+  text-decoration: none;
+}
+
+/* ---------- Banda „Breathe" care se mișcă ---------- */
+.band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.14em;
+  z-index: 0;
+  overflow: hidden; /* taie ce iese din ecran */
+  font-size: clamp(110px, 19vw, 300px);
+}
+
+.band_track {
+  display: flex;
+  width: max-content; /* lățimea = cât textul, nu cât ecranul */
+  margin: 0;
+  font-size: inherit; /* ia mărimea de la .band, nu cei 18px din p */
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--tint-color);
+  animation: band 30s linear infinite;
+}
+
+.band_track span {
+  padding-right: 0.3em; /* spațiul dintre cele două copii */
+}
+
+@keyframes band {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+/* ---------- Dropdown: categorii la Shop ---------- */
+.has_menu {
+  position: relative; /* meniul se poziționează față de link */
+}
+
+.menu {
+  width: max-content;
+  height: max-content;
+  position: absolute;
+  top: 100%;
+  left: -24px;
+  z-index: 20;
+  min-width: 220px;
+  padding: 28px 24px 20px; /* padding-ul de sus acoperă golul dintre link și meniu */
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: #fff;
+  border: 1px solid var(--line-color);
+
+  opacity: 0; /* starea ascunsă */
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s;
+}
+
+.has_menu:hover .menu,
+.has_menu:focus-within .menu {
+  /* focus-within: se deschide și cu tasta Tab */
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+/* linkurile din meniu intră pe rând */
+.menu a {
+  opacity: 0;
+  transform: translateX(-14px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.has_menu:hover .menu a,
+.has_menu:focus-within .menu a {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(var(--i) * 0.3s);
+}
+
+/* timpul preloaderului (3s bara + 0.6s dispariția) */
+:root {
+  --load: 3.4s;
+}
+
+/* ---------- Hero: poza se dezvăluie ca o cortină ---------- */
+.hero_visual > img {
+  animation: curtain 1.2s cubic-bezier(0.77, 0, 0.18, 1)
+    calc(var(--load) + 0.2s) both;
+}
+
+@keyframes curtain {
+  from {
+    clip-path: inset(0 100% 0 0);
+  } /* tăiată 100% din dreapta = invizibilă */
+  to {
+    clip-path: inset(0 0 0 0);
+  } /* nimic tăiat = poza întreagă */
+}
+
+/* blocul piersică crește după ce poza s-a dezvăluit */
+.hero_visual::before {
+  transform-origin: top left;
+  animation: block-in 1s ease calc(var(--load) + 1s) both;
+}
+
+@keyframes block-in {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* ---------- Hero: halo care pulsează în spatele pozei ---------- */
+.hero_visual::after {
+  content: "";
+  position: absolute;
+  z-index: -1; /* în spatele pozei și al blocului piersică */
+  inset: -18%; /* mai mare decât poza, ca haloul să iasă în jur */
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary-color) 0%, transparent 65%);
+  opacity: 0;
+  animation: pulse 4s ease-in-out calc(var(--load) + 0.2s) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.55;
+  }
+}
+/* ---------- Flip card (Shop) ---------- */
+.flip {
+  perspective: 1000px; /* adâncimea 3D, se pune pe PĂRINTE */
+}
+
+.flip_inner {
+  display: grid;
+  transform-style: preserve-3d; /* copiii rămân 3D, nu se turtesc */
+  transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.flip:hover .flip_inner,
+.flip:focus-within .flip_inner {
+  transform: rotateY(180deg);
+}
+
+.flip_front,
+.flip_back {
+  grid-area: 1 / 1; /* amândouă în aceeași celulă, una peste alta */
+  backface-visibility: hidden; /* spatele unei fețe nu se vede */
+}
+
+.flip_front {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.flip_back {
+  transform: rotateY(180deg); /* pornește deja întoarsă */
+  background: var(--dark-color);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.flip_back h3,
+.flip_back p {
+  color: #fff;
+}
+.flip_back .text_link {
+  color: #fff;
+}

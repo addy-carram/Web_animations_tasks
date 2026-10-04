@@ -1,56 +1,187 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Shop all | Wood</title>
-<link rel="stylesheet" href="style.css" />
-</head>
-<body class="site">
-<header>
-  <nav>
-    <a href="index.html"><img src="assests/John_Wood_Group-Logo.wine.png" style="width: auto; height: 28px" alt="Wood logo" /></a>
-    <div class="nav_links">
-      <a href="shop.html" aria-current="page">Shop All</a>
-      <a href="why-aromatherapy.html">Why Aromatherapy</a>
-      <a href="our-story.html">Our story</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
-      <a href="reviews.html">Reviews</a>
-    </div>
-    <img src="assests/shopping-cart.png" style="width: 28px; height: 28px" alt="Cart" />
-  </nav>
-</header>
-<main>
-<section class="page_head">
-  <p class="word" aria-hidden="true">Shop</p>
-  <div class="z1 stack">
-    <h1 class="page_title">Shop all</h1>
-    <p class="lead">Five handmade nebulizers in ceramic and oak. Free 4 day shipping to USA &amp; UK.</p>
-  </div>
-</section>
-<section>
-  <div class="grid g3">
-  <a class="card" href="product.html"><div class="card_img"><img src="assests/product_image/raymond-petrik-jz6G_hoD8z4-unsplash.jpg" alt="Sofia nebulizer" /></div><div class="card_body"><h3>Sofia</h3><p class="card_price">$100.00</p></div><p class="kpi">Handmade ceramic and oak</p></a>
-  <a class="card" href="product.html"><div class="card_img"><img src="assests/product_image/aedrian-salazar-wrEHW8QaeYw-unsplash.jpg" alt="Elara nebulizer" /></div><div class="card_body"><h3>Elara</h3><p class="card_price">$95.00</p></div><p class="kpi">Glazed ceramic and oak</p></a>
-  <a class="card" href="product.html"><div class="card_img"><img src="assests/product_image/katja-vogt-CipURjPCXOo-unsplash.jpg" alt="Marta nebulizer" /></div><div class="card_body"><h3>Marta</h3><p class="card_price">$120.00</p></div><p class="kpi">Stoneware and oak</p></a>
-  <a class="card" href="product.html"><div class="card_img"><img src="assests/product_image/suzanne-boureau-0FooF-aqLv8-unsplash.jpg" alt="Iris nebulizer" /></div><div class="card_body"><h3>Iris</h3><p class="card_price">$90.00</p></div><p class="kpi">Pale ceramic and oak</p></a>
-  <a class="card" href="product.html"><div class="card_img"><img src="assests/product_image/agata-smok-5amnLzry6DM-unsplash.jpg" alt="Clara nebulizer" /></div><div class="card_body"><h3>Clara</h3><p class="card_price">$105.00</p></div><p class="kpi">Dark ceramic and oak</p></a>
-    <div class="promo"><h3>Pre-Black Friday sale</h3><p>25% off any nebulizer with code 'Friday'.</p></div>
-  </div>
-</section>
-</main>
-<footer>
-  <p class="wordmark" aria-hidden="true">Wood</p>
-  <div class="nav_links footer_links">
-    <a href="shop.html">Shop All</a>
-    <a href="why-aromatherapy.html">Why Aromatherapy</a>
-    <a href="our-story.html">Our story</a>
-    <a href="faq.html">FAQ</a>
-    <a href="contact.html">Contact</a>
-    <a href="reviews.html">Reviews</a>
-    <p>&copy; 2026 Wood. All rights reserved.</p>
-  </div>
-</footer>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shop all | Wood</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="animations.css" />
+  </head>
+  <body class="site">
+    <header>
+      <nav>
+        <a href="index.html"
+          ><img
+            src="assests/John_Wood_Group-Logo.wine.png"
+            style="width: auto; height: 28px"
+            alt="Wood logo"
+        /></a>
+        <div class="nav_links">
+          <a href="shop.html" aria-current="page">Shop All</a>
+          <a href="why-aromatherapy.html">Why Aromatherapy</a>
+          <a href="our-story.html">Our story</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+          <a href="reviews.html">Reviews</a>
+        </div>
+        <img
+          src="assests/shopping-cart.png"
+          style="width: 28px; height: 28px"
+          alt="Cart"
+        />
+      </nav>
+    </header>
+    <main>
+      <section class="page_head">
+        <div class="band" aria-hidden="true">
+          <p class="band_track">
+            <span>Shop All</span>
+            <span>Shop All</span>
+          </p>
+        </div>
+        <div class="z1 stack">
+          <h1 class="page_title">Shop all</h1>
+          <p class="lead">
+            Five handmade nebulizers in ceramic and oak. Free 4 day shipping to
+            USA &amp; UK.
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="grid g3">
+          <article class="flip">
+            <div class="flip_inner">
+              <div class="flip_front">
+                <div class="card_img">
+                  <img
+                    src="assests/product_image/raymond-petrik-jz6G_hoD8z4-unsplash.jpg"
+                    alt="Sofia nebulizer"
+                  />
+                </div>
+                <div class="card_body">
+                  <h3>Sofia</h3>
+                  <p class="card_price">$100.00</p>
+                </div>
+              </div>
+              <div class="flip_back">
+                <h3>Sofia</h3>
+                <p>Handmade ceramic and oak. Waterless, with a warm light.</p>
+                <button class="btn btn_light" type="button">Add to cart</button>
+                <a class="text_link" href="product.html">View details</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip">
+            <div class="flip_inner">
+              <div class="flip_front">
+                <div class="card_img">
+                  <img
+                    src="assests/product_image/aedrian-salazar-wrEHW8QaeYw-unsplash.jpg"
+                    alt="Elara nebulizer"
+                  />
+                </div>
+                <div class="card_body">
+                  <h3>Elara</h3>
+                  <p class="card_price">$95.00</p>
+                </div>
+              </div>
+              <div class="flip_back">
+                <h3>Elara</h3>
+                <p>Glazed ceramic and oak. Easy to clean, extra-long cord.</p>
+                <button class="btn btn_light" type="button">Add to cart</button>
+                <a class="text_link" href="product.html">View details</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip">
+            <div class="flip_inner">
+              <div class="flip_front">
+                <div class="card_img">
+                  <img
+                    src="assests/product_image/katja-vogt-CipURjPCXOo-unsplash.jpg"
+                    alt="Marta nebulizer"
+                  />
+                </div>
+                <div class="card_body">
+                  <h3>Marta</h3>
+                  <p class="card_price">$120.00</p>
+                </div>
+              </div>
+              <div class="flip_back">
+                <h3>Marta</h3>
+                <p>Stoneware and oak. A heavier piece with a potent aroma.</p>
+                <button class="btn btn_light" type="button">Add to cart</button>
+                <a class="text_link" href="product.html">View details</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip">
+            <div class="flip_inner">
+              <div class="flip_front">
+                <div class="card_img">
+                  <img
+                    src="assests/product_image/suzanne-boureau-0FooF-aqLv8-unsplash.jpg"
+                    alt="Iris nebulizer"
+                  />
+                </div>
+                <div class="card_body">
+                  <h3>Iris</h3>
+                  <p class="card_price">$90.00</p>
+                </div>
+              </div>
+              <div class="flip_back">
+                <h3>Iris</h3>
+                <p>Pale ceramic and oak. Soft light, quiet and waterless.</p>
+                <button class="btn btn_light" type="button">Add to cart</button>
+                <a class="text_link" href="product.html">View details</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip">
+            <div class="flip_inner">
+              <div class="flip_front">
+                <div class="card_img">
+                  <img
+                    src="assests/product_image/agata-smok-5amnLzry6DM-unsplash.jpg"
+                    alt="Clara nebulizer"
+                  />
+                </div>
+                <div class="card_body">
+                  <h3>Clara</h3>
+                  <p class="card_price">$105.00</p>
+                </div>
+              </div>
+              <div class="flip_back">
+                <h3>Clara</h3>
+                <p>Dark ceramic and oak. Keeps germs away, easy to clean.</p>
+                <button class="btn btn_light" type="button">Add to cart</button>
+                <a class="text_link" href="product.html">View details</a>
+              </div>
+            </div>
+          </article>
+
+          <div class="promo">
+            <h3>Pre-Black Friday sale</h3>
+            <p>25% off any nebulizer with code 'Friday'.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p class="wordmark" aria-hidden="true">Wood</p>
+      <div class="nav_links footer_links">
+        <a href="shop.html">Shop All</a>
+        <a href="why-aromatherapy.html">Why Aromatherapy</a>
+        <a href="our-story.html">Our story</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="reviews.html">Reviews</a>
+        <p>&copy; 2026 Wood. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
 </html>
