@@ -285,7 +285,7 @@ nav > img:hover,
   z-index: -1; /* în spatele pozei și al blocului piersică */
   inset: -18%; /* mai mare decât poza, ca haloul să iasă în jur */
   border-radius: 50%;
-  background: radial-gradient(circle, var(--primary-color) 0%, transparent 65%);
+  background: radial-gradient(circle, var(--primary-color) 0%, transparent 75%);
   opacity: 0;
   animation: pulse 4s ease-in-out calc(var(--load) + 0.2s) infinite;
 }
@@ -346,4 +346,421 @@ nav > img:hover,
 }
 .flip_back .text_link {
   color: #fff;
+}
+/* ---------- Hero: textul urcă pe rând la încărcare ---------- */
+.hero .stack > * {
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero .stack > :nth-child(1) {
+  animation-delay: calc(var(--load) + 0.1s);
+}
+.hero .stack > :nth-child(2) {
+  animation-delay: calc(var(--load) + 0.3s);
+}
+.hero .stack > :nth-child(3) {
+  animation-delay: calc(var(--load) + 0.5s);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ---------- Nav: underline care se desenează ---------- */
+header .nav_links > a,
+header .has_menu > a {
+  position: relative;
+  padding-bottom: 6px;
+}
+
+header .nav_links > a::after,
+header .has_menu > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--primary-color);
+
+  transform: scaleX(0); /* linie de lățime zero */
+  transform-origin: right; /* la plecare se retrage spre dreapta */
+  transition: transform 0.4s cubic-bezier(0.6, 0, 0.2, 1);
+}
+
+header .nav_links > a:hover::after,
+header .has_menu > a:hover::after,
+header .nav_links > a:focus-visible::after,
+header .has_menu > a:focus-visible::after,
+header .nav_links a[aria-current="page"]::after {
+  transform: scaleX(1);
+  transform-origin: left; /* la intrare crește de la stânga */
+}
+
+/* pagina curentă are acum linia ::after, deci scoatem underline-ul vechi */
+header .nav_links a[aria-current="page"] {
+  text-decoration: none;
+}
+/* ---------- CTA: poza pulsează la infinit ---------- */
+.cta .layered > img {
+  animation: cta-pulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes cta-pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.07);
+  }
+}
+
+/* ---------- FAQ: „+" se rotește, răspunsul apare lin ---------- */
+.faq summary::after {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  transition: transform 0.35s cubic-bezier(0.6, 0, 0.2, 1);
+}
+
+.faq details[open] summary::after {
+  content: "-"; /* rămâne „+", nu mai devine „−" */
+}
+
+.faq details[open] p {
+  animation: faq-in 0.45s ease both;
+}
+
+@keyframes faq-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ---------- Review: un punct desenează bordura la hover ---------- */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.review {
+  position: relative;
+  border: none; /* scoatem linia statică de sus */
+  padding: 28px; /* loc între text și bordură */
+}
+
+.review::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px; /* grosimea bordurii */
+  pointer-events: none;
+
+  --angle: 0deg;
+  background:
+    conic-gradient(
+      transparent calc(var(--angle) - 6deg),
+      #fff4b0 var(--angle),
+      transparent calc(var(--angle) + 0.1deg)
+    ),
+    conic-gradient(#f5c518 var(--angle), transparent var(--angle));
+
+  /* decupăm interiorul, rămâne doar inelul de 2px */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box exclude,
+    linear-gradient(#000 0 0);
+
+  transition: --angle 1s ease;
+}
+
+.review:hover::after {
+  --angle: 360deg;
+}
+/* currsorul animatie */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 84px;
+  height: 84px;
+  margin: -42px 0 0 -42px; /* centrează discul pe cursor */
+  border-radius: 50%;
+  pointer-events: none;
+  user-select: none;
+  z-index: 9998;
+
+  display: grid;
+  place-items: center; /* textul stă exact în mijloc */
+  background: var(--primary-color);
+  box-shadow: 0 0 0 10px rgba(208, 79, 4, 0.25); /* halo-ul */
+
+  translate: var(--x, -150px) var(--y, -150px);
+  scale: 1;
+  transition:
+    translate 0.15s ease-out,
+    scale 0.3s ease;
+  animation: halo 2.4s ease-in-out infinite;
+}
+
+.cursor::after {
+  content: "Hello";
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* peste linkuri și butoane: crește puțin și își schimbă textul */
+body:has(a:hover, button:hover, summary:hover) .cursor {
+  scale: 1.3;
+}
+body:has(a:hover, button:hover, summary:hover) .cursor::after {
+  content: "Open";
+}
+
+@keyframes halo {
+  0%,
+  100% {
+    box-shadow: 0 0 0 8px rgba(208, 79, 4, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 22px rgba(208, 79, 4, 0);
+  }
+}
+
+@media (hover: none) {
+  .cursor {
+    display: none;
+  }
+}
+/* ---------- 1. Cuvântul uriaș alunecă lateral la scroll (toate paginile cu titlu) ---------- */
+@supports (animation-timeline: scroll()) {
+  .page_head .word {
+    animation: word-slide linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0px 600px; /* se mișcă în primii 600px de scroll */
+  }
+  @keyframes word-slide {
+    to {
+      translate: 200px 0;
+    }
+  }
+}
+
+/* ---------- 2. Poza se dezvăluie de jos în sus la scroll (Our story) ---------- */
+@supports (animation-timeline: view()) {
+  .layered.tall > img {
+    animation: wipe-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 80%;
+  }
+  @keyframes wipe-up {
+    from {
+      clip-path: inset(100% 0 0 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  /* ---------- 3. Numerele din pași apar rotindu-se (Our story) ---------- */
+  .steps li {
+    view-timeline-name: --step; /* li își dă cronometrul */
+  }
+  .steps li::before {
+    animation: pop linear both;
+    animation-timeline: --step; /* numărul îl folosește */
+    animation-range: entry 0% entry 60%;
+  }
+  @keyframes pop {
+    from {
+      opacity: 0;
+      transform: scale(0) rotate(-90deg);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+/* ---------- 4. Lista de uleiuri: rândul se împinge și se colorează la hover (Why) ---------- */
+.facts li {
+  transition:
+    padding-left 0.35s ease,
+    background-color 0.35s ease;
+}
+.facts li h4 {
+  transition: color 0.35s ease;
+}
+.facts li:hover {
+  padding-left: 24px;
+  background-color: var(--tint-color);
+}
+.facts li:hover h4 {
+  color: var(--primary-color);
+}
+/* ---------- A. Fundal care mătură textul, de la stânga la dreapta ---------- */
+.col3 h3,
+.review h3,
+.steps h4 {
+  width: fit-content; /* fundalul are lățimea textului, nu a coloanei */
+  background: linear-gradient(
+      var(--layered-accent-color),
+      var(--layered-accent-color)
+    )
+    no-repeat left / 0% 100%;
+  transition: background-size 0.45s cubic-bezier(0.6, 0, 0.2, 1);
+}
+.col3 h3:hover,
+.review h3:hover,
+.steps h4:hover {
+  background-size: 100% 100%;
+}
+
+/* ---------- B. Fundal care se extinde din centru, textul devine alb ---------- */
+.big_quote {
+  width: fit-content;
+  margin-inline: -0.25em; /* padding-ul nu mută textul din loc */
+  padding-inline: 0.25em;
+  background: linear-gradient(var(--primary-color), var(--primary-color))
+    no-repeat center / 0% 100%;
+  transition:
+    background-size 0.5s cubic-bezier(0.6, 0, 0.2, 1),
+    color 0.5s ease;
+}
+.big_quote:hover {
+  background-size: 100% 100%;
+  color: #fff;
+}
+/* ---------- Our story: conținutul apare la scroll ---------- */
+@keyframes soft-rise {
+  from {
+    opacity: 0;
+    translate: 0 40px;
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    filter: blur(0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  /* titlu + paragrafe: fiecare pornește puțin după precedentul */
+  .split .stack > * {
+    animation: soft-rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 45%;
+  }
+  .split .stack > :nth-child(2) {
+    animation-range: entry 8% entry 55%;
+  }
+  .split .stack > :nth-child(3) {
+    animation-range: entry 16% entry 65%;
+  }
+  .split .stack > :nth-child(4) {
+    animation-range: entry 24% entry 75%;
+  }
+}
+/* ---------- Titlul paginii: intră la încărcare, nu la scroll ---------- */
+.page_head .stack > * {
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.page_head .stack > :nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+/* ---------- Valurile: structura (clasa ta .class1) ---------- */
+.class1 {
+  height: 100px;
+  width: 200px;
+  margin: 50px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.class1 div {
+  width: 5px;
+  height: 5px;
+  margin-top: 90px;
+  background-color: var(--primary-color);
+  border-radius: 30px;
+  animation: move_color 1s infinite both ease-in-out;
+}
+
+/* fiecare punct pornește puțin mai târziu decât precedentul */
+#el1 {
+  animation-delay: 0.125s;
+}
+#el2 {
+  animation-delay: 0.25s;
+}
+#el3 {
+  animation-delay: 0.375s;
+}
+#el4 {
+  animation-delay: 0.5s;
+}
+#el5 {
+  animation-delay: 0.625s;
+}
+#el6 {
+  animation-delay: 0.75s;
+}
+#el7 {
+  animation-delay: 0.875s;
+}
+#el8 {
+  animation-delay: 1s;
+}
+
+/* 0% și 100% sunt identice, deci bucla nu mai sare */
+@keyframes move_color {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    background-color: var(--primary-color);
+  }
+  50% {
+    transform: translateY(-40px) scale(3);
+    background-color: var(--layered-accent-color);
+  }
+}
+
+/* ---------- Valurile devin fundal decorativ pe Our story ---------- */
+.page_head .story_bg {
+  position: absolute;
+  right: 120px;
+  bottom: 40px;
+  margin: 0; /* anulează margin: 50px din .class1 */
+  z-index: 0; /* în spatele textului */
+  opacity: 0.6;
+  pointer-events: none; /* nu blochează click-urile */
+  transform: scale(2.4); /* mărește toată banda */
+  transform-origin: bottom right;
+}
+
+@media (max-width: 900px) {
+  .page_head .story_bg {
+    right: 24px;
+    transform: scale(1.4);
+  }
 }
