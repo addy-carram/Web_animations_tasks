@@ -1,0 +1,73 @@
+/* General style */
+.flex {
+  margin: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+.frame {
+  height: 200px;
+  width: 200px;
+  border-radius: 20px;
+}
+
+.hamburger {
+  position: relative;
+  height: 40px;
+  width: 80px;
+  cursor: pointer;
+}
+
+.hamburger__animated {
+  position: absolute;
+  width: 80px;
+  height: 8px;
+  background: #fd6cf1;
+  transition: all ease-in-out 0.2s;
+  top: 2rem;
+  border-radius: 10px;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.hamburger--before {
+  top: 0rem;
+}
+
+.hamburger--after {
+  top: 1rem;
+}
+.hamburger:hover
+  .hamburger__animated:not(.hamburger--before, .hamburger--after) {
+  width: 60px;
+}
+
+.hamburger:hover .hamburger--after {
+  width: 70px;
+}
+
+.hamburger__animated--top {
+  top: 0.5rem;
+}
+
+.hamburger__animated--before-rotate {
+  transform: rotate(45deg);
+  transition-delay: 0.2s;
+}
+.hamburger__animated--rotate {
+  transform: rotate(-45deg);
+  transition-delay: 0.2s;
+}
+
+.hamburger__animated--transparent {
+  visibility: hidden;
+}
+
+.hamburger__animated--width {
+  width: 80px !important;
+}

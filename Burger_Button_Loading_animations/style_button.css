@@ -1,0 +1,180 @@
+/* Set the custom cursor for the entire page */
+body,
+html,
+* {
+  cursor:
+    url("https://lh3.google.com/u/0/d/1gAXS8cLP7EfK9RR75fcRnDZ2zV_nGE0Y=w1365-h606-iv1"),
+    auto;
+}
+
+/* Set custom cursor for interactive elements */
+a,
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  cursor:
+    url("https://lh3.googleusercontent.com/fife/ALs6j_FmK9-4QETCm7wQTvn7qjGnaN3qDjDi4gaWIuR8wP0goCs0hRVb_jydZgjVbiOCZZIAhu98zw3WxFNa1LWhYPMO6bFb4Ge887FQ2qeIHm-cExjZyUi9PYEzJe7g_2h44hm7IfF5tgrehhUTwhXjmsdKMblUSlXjQxy37ErtRJpSE4JpwmKe9_woskEhrgWrxAER6bZoEKQZ0WOaB2hfpkYmndPQ0NE2GmWhKpx_YJcoYKMe8wci9Xgi25htjVhj_rypuDsbfO9RIvUtC9uPdbSyq2R9CSLlGTWLVqwQ0GYN5FCRl_mCfmi7VKAm5INJi5TvGgQAVZ0G-VGPyldM23UK0kTLmQhZoTFcknJOb_jfVWE-ReQrwxno500f9-Ko4N0AvG6ziv_QgwLCYisZLz-ZnuR95NTT37qK5CgLaCYuBCaMXAINddljgAQFpJ6SuERjS50b4md-SoWUQIznjhxjPFhf8eNCjY6KGlHUtYGYe66QRey3HRjft2rSXbssE-ETXm9_2ON2OylinM07NUT6FNKWog1WpAo1XbGF5JKAo1N-GvBYkud_cwUOduFqn-BHYMRKpmjfqgQT58VUB8PmEOS0ODdDQ8MiB-6vulBU4EGLH20fONrlC091n3jh3DLrsLme28w8ODRvNxCMgehlzUR113DNd2Br-yZfTa9T6qWxxCnHnr2Em2TW3_JSZEG6GbeaC3NRG6gsqj_PzTG-QN0rADiIdCLGk_Qxa7ksCvIfU4_xpkyuwm2iCyD4dOe7fdKJ8jDrD8UOwANRpJHEcHncXzRdveqZBqNQw92tv1i42R3VTdCPdVBdXdss_cbXt_6rL0SD0t2PA7CKVtSXV1U2G2ew-Twr2pW_ieegozc4WWMbkH5V0DeEqumUgJ9sitlESMVweYsZGvCNJEneJzYG34TMkZu-xN_lGVyyJYpSUAerRBLnFPIkPVOo5MhAL2rtKqWquRVmVcZ-eiWzijAr4rQIhRzZjoLNBtf7BNdo-QUw_yRHuEN9hq4Pe5lFWZATDstu5tbc9svVASMx9Z3XqKm-wFi2UjylNiIeLLuaQerPD6iynuiRrulUlJe0gWaSLB9apoytnCGHCYOK8CWA1B-zWQVitX3gJUpjjLMIqiRFAk6hnmFInWL47m6efTF73POC5ZHHkDr2xc1lv2e89NUzAjzLi3jh0VKGJqvh97qA5Xck-HMAACreb1rL02s_ejlEiYTmj7T7veeFGuODQwvTLHdmatfjdv-w9c1ZL1ZIyvLdmOGpq2tfYlcsJhmNGMyZrJn4aggGCt47gQD9y_uLwpgAuHcHcwQAykaa58fWHgzAI5Xp7Mwr1bZcAClopSikQLp_99vLSfUM-M8guAYZBb6pV3UrUvNJ_x_lBVPFxiF_TweMk347BpTulz1vYZ55QQ-IseeqKm8M04-I7ytv09aVtJWjrkRi-kWeiq7zR29XCJLOtMVI05qwHCmEg1nUsL1dCtNAIQBF4TAaqnYKEPpA7luc5Revj6zb_OZxyuQKsr0OiNU16eI3AxnOk8dlRB84-sxjZGc257eK3p1KSycv74RmeXxCTRC0Jr5SRbCCRVf7zJ4KevVD0Xxx0pG7VENmLzAIm_nOg-X2EzZGMFrnc_01t3t8-ZN01Vmrsw=w924-h518"),
+    auto;
+}
+
+/* Set custom cursor for specific text-related elements */
+h1,
+p,
+input[type="text"],
+
+
+/* Style the body */
+body {
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Arrange items vertically */
+  justify-content: center; /* Center items vertically */
+  align-items: center; /* Center items horizontally */
+  height: 100vh; /* Ensure body takes up entire viewport height */
+  margin: 0; /* Remove default body margins */
+}
+
+/* Style links */
+a {
+  background: linear-gradient(
+    45deg,
+    #808080,
+    #000
+  ); /* Apply a gradient background */
+  padding: 20px 30px; /* Add padding */
+  border-radius: 15px; /* Add border radius */
+  text-decoration: none; /* Remove default underline */
+  color: #fff; /* Set text color */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* Add box shadow */
+  transition: all 0.5s; /* Add transition effect */
+}
+
+/* Hover effect for links */
+a:hover {
+  background: linear-gradient(
+    45deg,
+    #808080,
+    #00ff00
+  ); /* Change background on hover */
+  padding: 20px 30px; /* Adjust padding */
+  border-radius: 15px; /* Maintain border radius */
+  text-decoration: none; /* Remove underline */
+  color: #000000; /* Change text color on hover */
+  box-shadow: 5px 20px 5px rgba(0, 0, 0, 0.3); /* Add hover box shadow */
+}
+
+/* Style for glowing effect on hover */
+.glow-on-hover {
+  width: 220px; /* Set width */
+  height: 50px; /* Set height */
+  border: none; /* Remove border */
+  outline: none; /* Remove outline */
+  color: #fff; /* Set text color */
+  background: #111; /* Set background color */
+  position: relative; /* Set position */
+  z-index: 0; /* Set z-index */
+  border-radius: 10px; /* Add border radius */
+}
+
+/* Pseudo element for glowing effect */
+.glow-on-hover:before {
+  content: ""; /* Add content */
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  ); /* Apply gradient background */
+  position: absolute; /* Set position */
+  top: -2px; /* Set top position */
+  left: -2px; /* Set left position */
+  background-size: 400%; /* Set background size */
+  z-index: -1; /* Set z-index */
+  filter: blur(5px); /* Apply blur effect */
+  width: calc(100% + 4px); /* Calculate width */
+  height: calc(100% + 4px); /* Calculate height */
+  animation: glowing 20s linear infinite; /* Apply glowing animation */
+  opacity: 0; /* Set initial opacity */
+  transition: opacity 0.3s ease-in-out; /* Add transition effect */
+  border-radius: 10px; /* Add border radius */
+}
+
+/* Active state for glowing effect */
+.glow-on-hover:active {
+  color: #000; /* Set text color */
+}
+
+/* Hide pseudo element on click */
+.glow-on-hover:active:after {
+  background: transparent; /* Set background to transparent */
+}
+
+/* Show glowing effect on hover */
+.glow-on-hover:hover:before {
+  opacity: 1; /* Set opacity to 1 on hover */
+}
+
+/* Pseudo element for background during hover */
+.glow-on-hover:after {
+  z-index: -1; /* Set z-index */
+  content: ""; /* Add content */
+  position: absolute; /* Set position */
+  width: 100%; /* Set width */
+  height: 100%; /* Set height */
+  background: #111; /* Set background color */
+  left: 0; /* Set left position */
+  top: 0; /* Set top position */
+  border-radius: 10px; /* Add border radius */
+}
+
+/* Keyframes for glowing animation */
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  } /* Initial position */
+  50% {
+    background-position: 400% 0;
+  } /* Middle position */
+  100% {
+    background-position: 0 0;
+  } /* Final position */
+}
+
+/* Styling for animated underline on hover */
+h1 {
+  --s: 0.1em; /* Set underline thickness */
+  --c: #2c4bff; /* Set underline color */
+
+  color: #0000; /* Set text color */
+  padding-bottom: var(--s); /* Add padding for underline */
+  background:
+    linear-gradient(90deg, var(--c) 50%, #000 0) calc(100% - var(--_p, 0%)) /
+      200% 100%,
+    /* Apply gradient background for underline */ linear-gradient(var(--c) 0 0)
+      0% 100% / var(--_p, 0%) var(--s) no-repeat; /* Add gradient background for underline */
+  -webkit-background-clip: text, padding-box; /* Set background clip */
+  background-clip: text, padding-box; /* Set background clip */
+  transition: 0.5s; /* Add transition effect */
+}
+
+/* Increase underline length on hover */
+h1:hover {
+  --_p: 100%; /* Set underline length to 100% on hover */
+}
+
+/* Styling for text selection */
+h1::selection {
+  background-color: #2c4bff; /* Change background color on selection */
+  color: #000; /* Change text color on selection */
+}
+
+/* Additional styling for links */
+a {
+  padding: 10px 20px; /* Add padding */
+}

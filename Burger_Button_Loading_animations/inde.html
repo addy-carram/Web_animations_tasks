@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product page</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style_button.css" />
+    <link rel="stylesheet" href="style_divs.css" />
+  </head>
+  <style>
+    .afisare {
+      display: flex;
+      flex-direction: row;
+      gap: 50px;
+    }
+  </style>
+  <body>
+    <div class="afisare">
+      <div class="flex">
+        <div class="frame flex">
+          <div class="hamburger">
+            <div class="hamburger__animated hamburger--before"></div>
+            <div class="hamburger__animated"></div>
+            <div class="hamburger__animated hamburger--after"></div>
+          </div>
+        </div>
+      </div>
+      <div class="flex">
+        <button class="glow-on-hover" type="button">
+          TEST ! CLICK ON ME !!!
+        </button>
+      </div>
+      <div class="flex">
+        <div class="container">
+          <div class="dash uno"></div>
+          <div class="dash dos"></div>
+          <div class="dash tres"></div>
+          <div class="dash cuatro"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const burger = document.querySelectorAll(".hamburger__animated");
+
+    let showMenu = false;
+
+    const rotate = () => {
+      for (i = 0; i < burger.length; i++)
+        burger[0].classList.add("hamburger__animated--transparent");
+      burger[1].classList.add("hamburger__animated--rotate");
+      burger[2].classList.add("hamburger__animated--before-rotate");
+    };
+
+    const toggleMenu = () => {
+      if (!showMenu) {
+        for (let i = 0; i < burger.length; i++) {
+          burger[i].classList.add("hamburger__animated--width");
+          burger[i].classList.add("hamburger__animated--top");
+        }
+        setTimeout(rotate, 0);
+        showMenu = true;
+      } else {
+        for (i = 1; i < burger.length; i++)
+          burger[1].classList.remove("hamburger__animated--rotate");
+        burger[2].classList.remove("hamburger__animated--before-rotate");
+
+        const rotate = () => {
+          for (let i = 0; i < burger.length; i++) {
+            burger[i].classList.remove(
+              "hamburger__animated--top",
+              "hamburger__animated--transparent",
+              "hamburger__animated--width",
+            );
+          }
+        };
+        setTimeout(rotate, 200);
+
+        showMenu = false;
+      }
+    };
+    hamburger.addEventListener("click", toggleMenu);
+  </script>
+</html>
