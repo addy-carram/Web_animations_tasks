@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #1b1b2f;
+}
+canvas {
+  height: 100vh;
+  width: auto;
+  background: #fff;
+  border-radius: 16px;
+}
