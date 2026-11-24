@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1b1b1b;
+}
+
+.loz {
+  position: relative;
+  width: 600px;
+  height: 400px;
+}
+
+.loz img,
+.loz canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 400px;
+}
+
+canvas {
+  cursor: crosshair;
+  touch-action: none; /* ca să nu dea scroll pe telefon cât răzuiești */
+}
+
+#procent {
+  position: fixed;
+  pointer-events: none; /* să nu blocheze răzuitul */
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  font: 14px sans-serif;
+  transform: translate(15px, 15px);
+  display: none;
+}
